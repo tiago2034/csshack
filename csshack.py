@@ -1,11 +1,23 @@
-from terminalhackerfunctions import text_with_line
 from pymem.process import *
-from textcolors import red
 from pymem import *
 import keyboard
 processo = pymem.Pymem('hl2.exe')
 gameModule = module_from_name(processo.process_handle, 'client.dll').lpBaseOfDll
 print('Digite "hack" para ver todos os hacks')
+
+
+def text_with_line(text, linesnumber):
+    print('-' * linesnumber)
+    print(text)
+    print('-' * linesnumber)
+
+
+
+def red(text):
+    text_red = f'\033[31m{text}\033[m'
+    return text_red
+
+
 while True:
     terminal = str(input('> '))
     if terminal == 'hack':
